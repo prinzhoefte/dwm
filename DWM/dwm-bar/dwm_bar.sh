@@ -22,8 +22,8 @@ export SEP1="["
 export SEP2="]"
 
 #Set background
-#feh --bg-scale /home/justin/Pictures/Background.png	#BLUE
-feh --bg-scale /home/justin/Pictures/NewBackground.jpg #Red
+feh --bg-scale /home/justin/Downloads/42271.jpg	#BLUE
+#feh --bg-scale /home/justin/Pictures/NewBackground.jpg #Red
 #feh --bg-scale /home/justin/Pictures/BackgroundBlue.jpg #SFW Blue
 
 # Import the modules
