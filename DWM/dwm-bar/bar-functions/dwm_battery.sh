@@ -8,9 +8,8 @@ dwm_battery () {
     # Change BAT1 to whatever your battery is identified as. Typically BAT0 or BAT1
     CHARGE=$(cat /sys/class/power_supply/BAT0/capacity)%
 
-    printf "%s" "$SEP1"
-    printf "BAT %s" "$CHARGE"
-    printf "%s\n" "$SEP2"
+    printf " %s" "$CHARGE"
+    printf "|"
 }
 
 dwm_battery
