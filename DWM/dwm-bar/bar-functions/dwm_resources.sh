@@ -12,7 +12,7 @@ dwm_resources () {
 	temp=$(sensors -u k10temp-pci-00c3 | grep temp1 | awk '{print $2}')
 	newTemp=${temp%.*}
 
-	printf " %s| %s| %sC" "$MEMUSED" "$CPU" "$newTemp"
+	printf "  %s| %s| %sC" "$MEMUSED" "$CPU" "$newTemp"
 	printf "|"
 }
 
