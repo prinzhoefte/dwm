@@ -23,7 +23,7 @@ export SEP2="]"
 
 #Set background
 #feh --bg-scale /home/justin/Downloads/42271.jpg	#BLUE
-feh --bg-scale /home/justin/Pictures/blue.png	 	#BLUE
+feh --bg-scale /home/justin/Bilder/artix.png	 	#BLUE
 xcompmgr -c &
 #feh --bg-scale /home/justin/Pictures/BackgroundBlue.jpg #SFW Blue
 
