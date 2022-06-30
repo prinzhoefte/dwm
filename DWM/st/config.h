@@ -16,7 +16,7 @@ static int borderpx = 2;
  * 4: value of shell in /etc/passwd
  * 5: value of shell in config.h
  */
-static char *shell = "/bin/sh";
+static char *shell = "/bin/fish";
 char *utmp = NULL;
 /* scroll program: to enable use a string like "scroll" */
 char *scroll = NULL;
@@ -95,7 +95,6 @@ unsigned int tabspaces = 8;
 
 /* bg opacity */
 float alpha = 0.9;
-
 
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
