@@ -1361,7 +1361,7 @@ resizemouse(const Arg *arg)
 			}
 			if (!selmon->lt[selmon->sellt]->arrange || c->isfloating)
 				resize(c, c->x, c->y, nw, nh, 1);
-				//drawroundedcorners(c);
+				drawroundedcorners(c);
 			break;
 		}
 	} while (ev.type != ButtonRelease);
@@ -1373,7 +1373,7 @@ resizemouse(const Arg *arg)
 		selmon = m;
 		focus(NULL);
 	}
-	//drawroundedcorners(c);
+	drawroundedcorners(c);
 }
 
 void
