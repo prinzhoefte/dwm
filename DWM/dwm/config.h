@@ -15,6 +15,7 @@ static const char col_gray4[]       = "#eeeeee";
 static const char col_cyan[]        = "#005577"; //#005577 #dc322f c46669
 static const unsigned int baralpha = 0xd0;
 static const unsigned int borderalpha = 0xd0;
+static const int CORNER_RADIUS = 0;
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
