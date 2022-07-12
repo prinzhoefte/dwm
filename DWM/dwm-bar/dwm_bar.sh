@@ -21,9 +21,6 @@ export IDENTIFIER="unicode"
 export SEP1="["
 export SEP2="]"
 
-#Set background
-feh --bg-scale /home/justin/Bilder/artix.png
-
 . "$DIR/bar-functions/dwm_resources.sh"
 . "$DIR/bar-functions/dwm_date.sh"
 
