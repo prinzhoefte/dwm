@@ -1,6 +1,9 @@
-/* See LICENSE file for copyright and license details. */
+/*
 
-/* appearance */
+	DWM Config of Justin Rauch
+
+*/
+
 static const unsigned int borderpx  = 3;        /* border pixel of windows */
 static const unsigned int gappx     = 10;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
@@ -16,38 +19,41 @@ static const char col_cyan[]        = "#005577"; //#005577 #dc322f c46669
 static const unsigned int baralpha = 0xd0;
 static const unsigned int borderalpha = 0xd0;
 static const int CORNER_RADIUS = 0;
+
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
 	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
 };
+
+static const char *const autostart[] = {
+	"sh", "-c", "/home/justin/code/dwm/DWM/dwm-bar/dwm_bar.sh", NULL,
+	"sh", "-c", "autorandr -c; sleep 2; feh --bg-scale /home/justin/Bilder/mountain.jpg; easyeffects --gapplication-service;", NULL,
+	"dunst", NULL,
+	"xcompmgr", "-c", NULL,
+	NULL
+};
+
 static const unsigned int alphas[][3]      = {
 	/*               fg      bg        border     */
 	[SchemeNorm] = { OPAQUE, baralpha, borderalpha },
 	[SchemeSel]  = { OPAQUE, baralpha, borderalpha },
 };
 
-/* tagging */
 static const char *tags[] = { "", "", "", "", "", "", "", "", "" };
 
 static const Rule rules[] = {
-	/* xprop(1):
-	 *	WM_CLASS(STRING) = instance, class
-	 *	WM_NAME(STRING) = title
-	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
 	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
 };
 
-/* layout(s) */
-static const float mfact     = 0.5; /* factor of master area size [0.05..0.95] */
+static const float mfact     = 0.5;  /* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
 static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
 
 static const Layout layouts[] = {
-	/* symbol     arrange function */
 	{ "[]=",      tile },    /* first entry is default */
 	{ "><>",      NULL },    /* no layout function means floating behavior */
 	{ "[M]",      monocle },
