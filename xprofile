@@ -2,10 +2,3 @@
 /usr/bin/pipewire-pulse &
 /usr/bin/wireplumber &
 setxkbmap de &
-
-wm=$(printenv | grep "DESKTOP_SESSION")
-
-if [ "$wm" = "DESKTOP_SESSION=xmonad" ]; then
-	/home/justin/xmonad/xmonadInit.sh &
-	xcompmgr -c &
-fi
