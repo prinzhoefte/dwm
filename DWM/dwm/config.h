@@ -28,8 +28,9 @@ static const char *colors[][3]      = {
 
 static const char *const autostart[] = {
 	"sh", "-c", "/home/justin/code/dwm/DWM/dwm-bar/dwm_bar.sh", NULL,
-	"sh", "-c", "/home/justin/code/dwm/DWM/animatedWallpaper/bg.sh", NULL,
-	"sh", "-c", "autorandr -c; sleep 2; easyeffects --gapplication-service;", NULL,
+	"sh", "-c", "/home/justin/code/dwm/DWM/animatedWallpaper/bg.sh", NULL,			//Animated Wallpaper
+	"sh", "-c", "autorandr -c; easyeffects --gapplication-service;", NULL,
+	//"sh", "-c", "sleep 2; feh --bg-scale /home/justin/Bilder/mountain.jpg", NULL, //Normal Wallpaper
 	"dunst", NULL,
 	"xcompmgr", "-c", NULL,
 	NULL
