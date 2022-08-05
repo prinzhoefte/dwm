@@ -6,6 +6,6 @@ do
     for ((i = 1; i <= $frames; i++)); do
         img=$path/BG$i.jpg
         feh --bg-scale $img
-        sleep 0.02
+        sleep 0.01
     done
 done
