@@ -31,7 +31,7 @@ static const unsigned int alphas[][3]      = {
 static const char *const autostart[] = {
 	"sh", "-c", "/home/justin/code/dwm/DWM/dwm-bar/dwm_bar.sh", NULL,
 	//"sh", "-c", "easyeffects --gapplication-service;", NULL,
-	"sh", "-c", "feh --bg-scale /home/justin/Bilder/mountain.jpg", NULL, //Normal Wallpaper
+	"sh", "-c", "feh --bg-scale /home/justin/Pictures/blue.png", NULL, //Normal Wallpaper
 	"dunst", NULL,
 	"xcompmgr", "-c", NULL,
 	NULL
@@ -84,12 +84,6 @@ static Key keys[] = {
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
-	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
-	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
-	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
-	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
-	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
-	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
 	{ MODKEY,                       XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY|ShiftMask,             XK_c,      killclient,     {0} },
