@@ -5,7 +5,7 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "Liberation Mono:pixelsize=24:antialias=true:autohint=true";
+static char *font = "monospace:pixelsize=20:antialias=true:autohint=true";
 static int borderpx = 2;
 
 /*
@@ -96,32 +96,28 @@ unsigned int tabspaces = 8;
 /* bg opacity */
 float alpha = 0.7;
 
-/* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
 
-  /* 8 normal colors */
-  [0] = "#3b4252", /* black   */
-  [1] = "#bf616a", /* red     */
-  [2] = "#a3be8c", /* green   */
-  [3] = "#ebcb8b", /* yellow  */
-  [4] = "#81a1c1", /* blue    */
-  [5] = "#b48ead", /* magenta */
-  [6] = "#88c0d0", /* cyan    */
-  [7] = "#e5e9f0", /* white   */
+  [0] = "#090d21",
+  [1] = "#419bdd",
+  [2] = "#56e8f2",
+  [3] = "#fcfcfc",
+  [4] = "#56e8f2",
+  [5] = "#f890e7",
+  [6] = "#36beae",
+  [7] = "#dedede",
 
-  /* 8 bright colors */
-  [8]  = "#4c566a", /* black   */
-  [9]  = "#bf616a", /* red     */
-  [10] = "#a3be8c", /* green   */
-  [11] = "#ebcb8b", /* yellow  */
-  [12] = "#81a1c1", /* blue    */
-  [13] = "#b48ead", /* magenta */
-  [14] = "#8fbcbb", /* cyan    */
-  [15] = "#eceff4", /* white   */
+  [8] = "#dedede",
+  [9] = "#419bdd",
+  [10] = "#56e8f2",
+  [11] = "#fcfcfc",
+  [12] = "#56e8f2",
+  [13] = "#f890e7",
+  [14] = "#36beae",
+  [15] = "#dedede",
 
-  /* special colors */
-  [256] = "#1a1b26", /* background default: 11171f */
-  [257] = "#d8dee9", /* foreground */
+  [256] = "#242530", /* background */
+  [257] = "#c8c8c8", /* foreground */
 };
 
 /*
