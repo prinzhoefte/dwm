@@ -6,7 +6,6 @@ export IDENTIFIER="unicode"
 export SEP1="["
 export SEP2="]"
 
-feh --bg-scale /home/justin/Pictures/blue.png	 	#BLUE
 xcompmgr -c &
 
 . "$DIR/bar-functions/dwm_resources.sh"
