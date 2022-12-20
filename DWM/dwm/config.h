@@ -30,7 +30,8 @@ static const char *const autostart[] = {
 	"sh", "-c", "autorandr -c;", NULL,
 	"sh", "-c", "/home/justin/code/dwm/DWM/dwm-bar/dwm_bar.sh", NULL,
 	//"sh", "-c", "/home/justin/code/dwm/DWM/animatedWallpaper/bg.sh", NULL,			//Animated Wallpaper
-	"sh", "-c", "sleep 2; feh --bg-scale /home/justin/code/dwm/DWM/wallpapers/red.jpg", NULL, //Normal Wallpaper
+	"sh", "-c", "sleep 2; feh --bg-scale /home/justin/code/dwm/DWM/wallpapers/red.jpg", NULL, 	//Normal Wallpaper
+	"sh", "-c", "openrgb -p BluePurple.orp", NULL, 							//RGB Profile
 	"dunst", NULL,
 	"xcompmgr", "-c", NULL,
 	NULL
