@@ -15,23 +15,24 @@ static const char col_gray1[]       = "#080c14"; // Blue 080c14 Red 140809
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#dc322f"; // Blue #005577 Red bright #dc322f Red 770000
+static const char col_Main[]		= "#dc322f"; // Blue #005577 Red bright #dc322f Red 770000
+static const char col_border[]		= "#dc322f"; // Blue #005577 Red bright #dc322f Red 770000
 static const unsigned int baralpha = 0xd0;
 static const unsigned int borderalpha = 0xd0;
 static const int CORNER_RADIUS = 0;
 
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
+	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },	//Unfocused
+	[SchemeSel]  = { col_gray4, col_Main,  col_border  }, //Focused
 };
 
 static const char *const autostart[] = {
 	"sh", "-c", "autorandr -c;", NULL,
 	"sh", "-c", "/home/justin/code/dwm/DWM/dwm-bar/dwm_bar.sh", NULL,
-	//"sh", "-c", "/home/justin/code/dwm/DWM/animatedWallpaper/bg.sh", NULL,			//Animated Wallpaper
+	//"sh", "-c", "/home/justin/code/dwm/DWM/animatedWallpaper/bg.sh", NULL,					//Animated Wallpaper
 	"sh", "-c", "sleep 2; feh --bg-scale /home/justin/code/dwm/DWM/wallpapers/red.jpg", NULL, 	//Normal Wallpaper
-	"sh", "-c", "openrgb -p BluePurple.orp", NULL, 							//RGB Profile
+	//"sh", "-c", "openrgb -p BluePurple.orp", NULL, 												//RGB Profile
 	"dunst", NULL,
 	"xcompmgr", "-c", NULL,
 	NULL
@@ -73,7 +74,7 @@ static const Layout layouts[] = {
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_Main, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
 
 static Key keys[] = {
