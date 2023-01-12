@@ -7,7 +7,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <stdbool.h>
 
 void removeLast(char* str) {
     str[strlen(str)-1] = '\0';
@@ -55,7 +54,7 @@ int main() {
     char* charge = malloc(sizeof(char));
     char* date = malloc(sizeof(char));
 
-    while(true) {
+    while(1) {
         getCpu(cpu);
         getMemory(memory);
         getTemp(temp);
