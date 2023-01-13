@@ -33,13 +33,6 @@ void getTemp(char* temp) {
     pclose(f);
 }
 
-void getCharge(char* charge) {
-    FILE *f = popen("cat /sys/class/power_supply/BAT0/capacity", "r");
-    fgets(charge, 5, f);
-    removeLast(charge);
-    pclose(f);
-}
-
 void getDate(char* date) {
     FILE *f = popen("date \"+%d-%m %T\"", "r");
     fgets(date, 15, f);
@@ -51,22 +44,19 @@ int main() {
     char* cpu = malloc(sizeof(char));
     char* memory = malloc(sizeof(char));
     char* temp = malloc(sizeof(char));
-    char* charge = malloc(sizeof(char));
     char* date = malloc(sizeof(char));
 
     while(1) {
         getCpu(cpu);
         getMemory(memory);
         getTemp(temp);
-        getCharge(charge);
         getDate(date);
         sprintf(output, 
-            "%s '[ %s%] [ %s] [ %sC] [ %s%] [ %s]'", 
+            "%s ' [ %s%] [ %s] [ %sC] [ %s]'", 
             "xsetroot -name ", 
             cpu, 
             memory, 
             temp,
-            charge,
             date
         );
         system(output);
