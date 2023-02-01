@@ -11,12 +11,12 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "monospace:size=17" };
 static const char dmenufont[]       = "monospace:size=17";
-static const char col_gray1[]       = "#080c14"; // Blue 080c14 Red 140809
+static const char col_gray1[]       = "#080c14";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
-static const char col_Main[]		= "#dc322f"; // Blue #005577 Red bright #dc322f Red 770000
-static const char col_border[]		= "#dc322f"; // Blue #005577 Red bright #dc322f Red 770000
+static const char col_Main[]		= "#005577"; // Blue #005577 Red bright #dc322f Red 770000
+static const char col_border[]		= "#005577"; // Blue #005577 Red bright #dc322f Red 770000
 static const unsigned int baralpha = 0xd0;
 static const unsigned int borderalpha = 0xd0;
 static const int CORNER_RADIUS = 0;
@@ -30,7 +30,7 @@ static const char *colors[][3]      = {
 static const char *const autostart[] = {
 	"sh", "-c", "autorandr -c;", NULL,
 	//"sh", "-c", "/home/justin/code/dwm/DWM/animatedWallpaper/bg.sh", NULL,					//Animated Wallpaper
-	"sh", "-c", "sleep 2; feh --bg-scale /home/justin/code/dwm/DWM/wallpapers/red.jpg", NULL, 	//Normal Wallpaper
+	"sh", "-c", "sleep 2; feh --bg-scale /home/justin/code/dwm/DWM/wallpapers/mountain.jpg", NULL, 	//Normal Wallpaper
 	"sh", "-c", "setxkbmap de;", NULL,
 	"dwmbar", NULL,
 	"dunst", NULL,
