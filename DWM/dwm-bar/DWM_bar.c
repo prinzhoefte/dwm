@@ -33,6 +33,13 @@ void getTemp(char* temp) {
     pclose(f);
 }
 
+void getCharge(char* battery) {
+    FILE *f = popen("rivalcfg --battery-level | awk '{print $4}'", "r");
+    fgets(battery, 6, f);
+    removeLast(battery);
+    pclose(f);
+}
+
 void getDate(char* date) {
     FILE *f = popen("date \"+%d-%m %T\"", "r");
     fgets(date, 15, f);
@@ -45,18 +52,21 @@ int main() {
     char* memory = malloc(sizeof(char));
     char* temp = malloc(sizeof(char));
     char* date = malloc(sizeof(char));
+    char* battery = malloc(sizeof(char));
 
     while(1) {
         getCpu(cpu);
         getMemory(memory);
         getTemp(temp);
         getDate(date);
+        getCharge(battery);
         sprintf(output, 
-            "%s ' [ %s%] [ %s] [ %sC] [ %s]'", 
+            "%s ' [ %s%] [ %s] [ %sC] [ %s%] [ %s]'",
             "xsetroot -name ", 
             cpu, 
             memory, 
             temp,
+            battery,
             date
         );
         system(output);
