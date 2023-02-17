@@ -26,7 +26,7 @@ static const unsigned int alphas[][3]      = {
 };
 
 static const char *const autostart[] = {
-	"sh", "-c", "feh --bg-scale /home/justin/Pictures/red.jpg", NULL, //Normal Wallpaper
+	"sh", "-c", "feh --bg-scale /home/justin/code/dwm/DWM/wallpapers/night.jpg", NULL, //Normal Wallpaper
 	"sh", "-c", "setxkbmap de", NULL, //Keyboard Layouts
 	"dwmbar", NULL,
 	"dunst", NULL,
