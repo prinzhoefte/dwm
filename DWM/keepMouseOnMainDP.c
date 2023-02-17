@@ -49,16 +49,17 @@ getScreenCords(int* screenX_L, int* screenX_R, int* screenY_U, int* screenY_D, c
         fgets(xrandrOutputString, 100, xrandrOutput);
     }
     pclose(xrandrOutput);
+    int size = strlen(xrandrOutputString);
     //get the x and y offsets
-    for(int i = 0; i < 100; i++) {
+    for(int i = 0; i < size; i++) {
         if(xrandrOutputString[i] == '+') {
-            for(int j = 0; j < 100; j++) {
+            for(int j = 0; j < size; j++) {
                 x[j] = xrandrOutputString[j+i+1];
                 if(xrandrOutputString[j+i+1] == '+') {
                     x[j] = '\0';
                     break;
                 }
-                for(int k = 0; k < 100; k++) {
+                for(int k = 0; k < size; k++) {
                     y[k] = xrandrOutputString[j+i+k+3];
                     if(xrandrOutputString[j+i+k+3] == ' ') {
                         y[k] = '\0';
@@ -70,9 +71,9 @@ getScreenCords(int* screenX_L, int* screenX_R, int* screenY_U, int* screenY_D, c
         }
     }
     //get screen resolution
-    for(int i = 0; i < 100; i++) {
+    for(int i = 0; i < size; i++) {
         if(xrandrOutputString[i] == 'x') {
-            for(int j = 0; j < 100; j++) {
+            for(int j = 0; j < size; j++) {
                 resY[j] = xrandrOutputString[j+i+1];
                 if(xrandrOutputString[j+i+1] == '+') {
                     resY[j] = '\n';
@@ -139,7 +140,7 @@ main(int argc, char** argv)
     }
     //Reserve memory for vars
     int offset;
-    char* activeScreen = malloc(sizeof(char)*20);
+    char* activeScreen = malloc(sizeof(char)*strlen(argv[1]));
     strcpy(activeScreen, argv[1]);
     offset = atoi(argv[2]);
     int* mousePosX = malloc(sizeof(int));
