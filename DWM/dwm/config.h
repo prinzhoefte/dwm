@@ -5,11 +5,11 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "monospace:size=17" };
 static const char dmenufont[]       = "monospace:size=17";
-static const char col_gray1[]       = "#080c14"; // Blue 080c14 Red 140809
+static const char col_gray1[]       = "#080c14"; // Blue 080c14
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#dc322f"; // Blue #005577 Red bright #dc322f Red 770000
+static const char col_cyan[]        = "#005577"; // Blue #005577 Red bright #dc322f
 static const unsigned int baralpha = 0xd0;
 static const unsigned int borderalpha = 0xd0;
 static const int CORNER_RADIUS = 0;
