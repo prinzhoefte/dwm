@@ -7,6 +7,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <unistd.h>
 
 void removeLast(char* str) {
     str[strlen(str)-1] = '\0';
@@ -38,6 +39,12 @@ void getCharge(char* battery) {
     fgets(battery, 6, f);
     removeLast(battery);
     pclose(f);
+    if(strcmp(battery, "%") == 0) {
+        FILE *f = popen("rivalcfg --battery-level | awk '{print $3}'", "r");
+        fgets(battery, 6, f);
+        removeLast(battery);
+        pclose(f);
+    }
 }
 
 void getDate(char* date) {
