@@ -18,6 +18,8 @@ getNetwork(char* network) {
 	FILE *f = popen("nmcli | grep 'connected' | awk 'NR==1{print $4}'", "r");
     fgets(network, 100, f);
     removeLast(network);
+    if(strcmp(network, "to") == 0)
+        strcpy(network, "disconnected");
 	pclose(f);
 }
 
