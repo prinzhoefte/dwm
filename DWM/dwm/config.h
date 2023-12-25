@@ -19,7 +19,6 @@ static const char col_Main[]		= "#005577"; // Blue #005577 Red bright #dc322f Re
 static const char col_border[]		= "#005577"; // Blue #005577 Red bright #dc322f Red 770000
 static const unsigned int baralpha = 0xd0;
 static const unsigned int borderalpha = 0xd0;
-static const int CORNER_RADIUS = 0;
 
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */

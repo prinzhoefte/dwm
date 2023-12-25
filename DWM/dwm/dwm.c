@@ -219,7 +219,6 @@ static int xerror(Display *dpy, XErrorEvent *ee);
 static int xerrordummy(Display *dpy, XErrorEvent *ee);
 static int xerrorstart(Display *dpy, XErrorEvent *ee);
 static void xinitvisual();
-static void drawroundedcorners(Client *c);
 static void zoom(const Arg *arg);
 static void autostart_exec(void);
 
@@ -1048,7 +1047,6 @@ manage(Window w, XWindowAttributes *wa)
 		unfocus(selmon->sel, 0);
 	c->mon->sel = c;
 	arrange(c->mon);
-	drawroundedcorners(c);
 	XMapWindow(dpy, c->win);
 	focus(NULL);
 }
@@ -1270,56 +1268,8 @@ resizeclient(Client *c, int x, int y, int w, int h)
 	wc.border_width = c->bw;
 	XConfigureWindow(dpy, c->win, CWX|CWY|CWWidth|CWHeight|CWBorderWidth, &wc);
 	configure(c);
-	drawroundedcorners(c);
 	XSync(dpy, False);
 }
-
-void
-drawroundedcorners(Client *c)
-{
-	if(CORNER_RADIUS <= 0) return;
-
-    Window w = c->win;
-    XWindowAttributes wa;
-    XGetWindowAttributes(dpy, w, &wa);
-
-    if(!XGetWindowAttributes(dpy, w, &wa))
-        return;
-
-    int width = borderpx * 2 + wa.width;
-    int height = borderpx * 2 + wa.height;
-
-    int dia = 2 * CORNER_RADIUS;
-
-    if(width < dia || height < dia)
-        return;
-
-    Pixmap mask = XCreatePixmap(dpy, w, width, height, 1);
-
-    if(!mask)
-        return;
-
-    XGCValues xgcv;
-    GC shape_gc = XCreateGC(dpy, mask, 0, &xgcv);
-    if(!shape_gc) {
-        XFreePixmap(dpy, mask);
-        return;
-    }
-
-    XSetForeground(dpy, shape_gc, 0);
-    XFillRectangle(dpy, mask, shape_gc, 0, 0, width, height);
-    XSetForeground(dpy, shape_gc, 1);
-    XFillArc(dpy, mask, shape_gc, 0, 0, dia, dia, 0, 23040);
-    XFillArc(dpy, mask, shape_gc, width-dia-1, 0, dia, dia, 0, 23040);
-    XFillArc(dpy, mask, shape_gc, 0, height-dia-1, dia, dia, 0, 23040);
-    XFillArc(dpy, mask, shape_gc, width-dia-1, height-dia-1, dia, dia, 0, 23040);
-    XFillRectangle(dpy, mask, shape_gc, CORNER_RADIUS, 0, width-dia, height);
-    XFillRectangle(dpy, mask, shape_gc, 0, CORNER_RADIUS, width, height-dia);
-    XShapeCombineMask(dpy, w, ShapeBounding, 0-wa.border_width, 0-wa.border_width, mask, ShapeSet);
-    XFreePixmap(dpy, mask);
-    XFreeGC(dpy, shape_gc);
-}
-
 
 void
 resizemouse(const Arg *arg)
@@ -1365,7 +1315,6 @@ resizemouse(const Arg *arg)
 			}
 			if (!selmon->lt[selmon->sellt]->arrange || c->isfloating)
 				resize(c, c->x, c->y, nw, nh, 1);
-				drawroundedcorners(c);
 			break;
 		}
 	} while (ev.type != ButtonRelease);
@@ -1377,7 +1326,6 @@ resizemouse(const Arg *arg)
 		selmon = m;
 		focus(NULL);
 	}
-	drawroundedcorners(c);
 }
 
 void
@@ -1386,9 +1334,6 @@ restack(Monitor *m)
 	Client *c;
 	XEvent ev;
 	XWindowChanges wc;
-
-    for (c = m->stack; c; c = c->snext)
-	    drawroundedcorners(c);
 
 	drawbar(m);
 	if (!m->sel)
