@@ -24,8 +24,13 @@ impl Battery {
         for line in lines {
             if line.contains("Battery 0") {
                 let parts: Vec<&str> = line.split_whitespace().collect();
-                let percentage: Vec<&str> = parts[3].split("%").collect();
-                self.battery_percentage = percentage[0].parse().unwrap_or(0.0);
+                let percentage: Vec<&str>;
+                if parts[2] == "Not" {
+                    percentage = parts[4].split("%").collect();
+                } else {
+                    percentage = parts[3].split("%").collect();
+                }
+                self.battery_percentage = percentage[0].parse().unwrap();
                 return;
             }
         }
@@ -42,7 +47,11 @@ impl Battery {
         for line in lines {
             if line.contains("Battery 0") {
                 let parts: Vec<&str> = line.split_whitespace().collect();
-                self.battery_status = parts[2].to_string().replace(",", "");
+                if parts[2] == "Not" {
+                    self.battery_status = "Charging".to_string();
+                } else {
+                    self.battery_status = parts[2].to_string().replace(",", "");
+                }
                 return;
             }
         }
